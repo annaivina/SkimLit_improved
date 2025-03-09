@@ -25,7 +25,7 @@ def get_callbacks(experiment_name="", model_name="", is_fine_tune=False):
     
     #Create Early Stopping, LR shedular and checkpoint callbacks:
     early_stopping = tf.keras.callbacks.EarlyStopping(monitor="val_loss", patience=3)
-    lr_shedular = tf.keras.callbacks.ReduceLROnPlateau(monilot="val_loss", factor=0.5, patience=3, min_lr=1e-7)
+    lr_shedular = tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss", factor=0.5, patience=3, min_lr=1e-7)
     checkpoint = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_dir+'best_model.keras', monitor="val_loss", save_best_only=True)
 
     return early_stopping, lr_shedular, checkpoint

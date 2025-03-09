@@ -1,5 +1,15 @@
-#General settings
-dataset: "skimlit_dataset"
-batch_size: 32
-num_classes: 5
-labels: {"OBJECTIVE", "BACKGROUND", "METHODS", "RESULTS" ,"CONCLUSIONS"}
+#General settings - dataloader 
+dataset: 
+  schema: skimlit_dataset
+  batch_size: 32
+  num_classes: 5
+  labels: ["OBJECTIVE", "BACKGROUND", "METHODS", "RESULTS" ,"CONCLUSIONS"]
+  length_chars: 338 #Calculated form the inputs 98 percentile in all char inputs 
+  model_name: skimlit
+
+#Model settings:
+params:
+  lr: 0.001
+  metric: accuracy
+  dropout: 0.5
+  epochs: 10
